@@ -1,6 +1,6 @@
 {
   "name": "buddyworksapi",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Buddy Works",
   "description": "Buddy Works APIs Client Library for Node.js",
   "contributors": [
