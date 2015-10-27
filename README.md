@@ -1,2 +1,1 @@
-# buddy-works-node-api
-Public api for buddy works
+# Buddy Works APIs Node.js Client

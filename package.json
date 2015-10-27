@@ -1,0 +1,38 @@
+{
+  "name": "buddyworksapi",
+  "version": "1.0.0",
+  "author": "Buddy Works",
+  "description": "Buddy Works APIs Client Library for Node.js",
+  "contributors": [
+    {
+      "name": "Mike Hankus",
+      "email": "mike@buddy.works"
+    }
+  ],
+  "engines": {
+    "node": ">=0.10"
+  },
+  "main": "./lib/buddyworksapi",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mical/buddy-works-node-api.git"
+  },
+  "keywords": [
+    "buddy",
+    "buddy works",
+    "buddy api",
+    "buddy works api",
+    "client library"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "jshint": "^2.8.0",
+    "mocha": "^2.3.3"
+  },
+  "scripts": {
+    "lint": "jshint lib test",
+    "test": "mocha --reporter spec --timeout 4000",
+    "prepare": "npm test && npm run lint && npm version patch"
+  },
+  "license": "Apache-2.0"
+}
