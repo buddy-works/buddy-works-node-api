@@ -6,11 +6,11 @@
   "contributors": [
     {
       "name": "Mike Hankus",
-      "email": "mike@buddy.works"
+      "email": "mikeh@buddy.works"
     },
     {
       "name": "Pavel Kapala",
-      "email": "pavel@buddy.works"
+      "email": "pavelk@buddy.works"
     }
   ],
   "engines": {
@@ -30,6 +30,7 @@
   ],
   "dependencies": {},
   "devDependencies": {
+    "chai": "^3.4.0",
     "jshint": "^2.8.0",
     "mocha": "^2.3.3"
   },
