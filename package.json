@@ -28,7 +28,10 @@
     "buddy works api",
     "client library"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "qs": "^5.2.0",
+    "request": "^2.65.0"
+  },
   "devDependencies": {
     "chai": "^3.4.0",
     "jshint": "^2.8.0",

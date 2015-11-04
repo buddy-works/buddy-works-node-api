@@ -32,29 +32,63 @@ describe('buddyworksapi', function(){
 
 	});
 
-	describe('.useToken()', function(){
-
-		it('should set token', function(){
-			var token = utils.createRandomText();
-			buddyworksapi.useToken(token);
-			expect(buddyworksapi.options).to.be.an('object');
-			expect(buddyworksapi.options.token).equal(token);
-			expect(buddyworksapi.options.useToken).equal(true);
-		});
-	});
-
-	describe('.useClient()', function(){
+	describe('.useOAuth()', function(){
 
 		it('should set client id & secret', function(){
 			var clientId = utils.createRandomText();
 			var clientSecret = utils.createRandomText();
-			buddyworksapi.useClient(clientId, clientSecret);
+			buddyworksapi.useOAuth(clientId, clientSecret);
 			expect(buddyworksapi.options).to.be.an('object');
 			expect(buddyworksapi.options.clientId).equal(clientId);
 			expect(buddyworksapi.options.clientSecret).equal(clientSecret);
-			expect(buddyworksapi.options.useClient).equal(true);
 		});
 
+	});
+
+	describe('oauth.getAuthorizeUrl()', function(){
+		var clientId = utils.createRandomText();
+		var clientSecret = utils.createRandomText();
+		buddyworksapi.useOAuth(clientId, clientSecret);
+
+		it('should throw error when no scopes provided', function(){
+			expect(buddyworksapi.oauth.getAuthorizeUrl.bind(buddyworksapi.oauth, [], 'test')).to.throw('Must have at least one scope');
+			expect(buddyworksapi.oauth.getAuthorizeUrl.bind(buddyworksapi.oauth, [buddyworksapi.SCOPE_MANAGE_EMAILS], 'test')).to.not.throw('Must have at least one scope');
+		});
+
+		it('should throw error when no state provided', function(){
+			expect(buddyworksapi.oauth.getAuthorizeUrl.bind(buddyworksapi.oauth, [buddyworksapi.SCOPE_MANAGE_EMAILS], '')).to.throw('State must be provided');
+			expect(buddyworksapi.oauth.getAuthorizeUrl.bind(buddyworksapi.oauth, [buddyworksapi.SCOPE_MANAGE_EMAILS], null)).to.throw('State must be provided');
+			expect(buddyworksapi.oauth.getAuthorizeUrl.bind(buddyworksapi.oauth, [buddyworksapi.SCOPE_MANAGE_EMAILS], undefined)).to.throw('State must be provided');
+			expect(buddyworksapi.oauth.getAuthorizeUrl.bind(buddyworksapi.oauth, [buddyworksapi.SCOPE_MANAGE_EMAILS], 'test')).to.not.throw('State must be provided');
+		});
+
+	});
+
+	describe('oauth.getAccessToken()', function(){
+		var clientId = utils.createRandomText();
+		var clientSecret = utils.createRandomText();
+		buddyworksapi.useOAuth(clientId, clientSecret);
+
+		it('should return error when no code provided', function(done){
+			buddyworksapi.oauth.getAccessToken('', null, function(err){
+				expect(err).to.be.instanceOf(Error);
+				done();
+			});
+		});
+
+		it('should return error when no code provided 2', function(done){
+			buddyworksapi.oauth.getAccessToken(null, null, function(err){
+				expect(err).to.be.instanceOf(Error);
+				done();
+			});
+		});
+
+		it('should return error when code is wrong', function(done){
+			buddyworksapi.oauth.getAccessToken(utils.createRandomText(), null, function(err){
+				expect(err).to.be.instanceOf(Error);
+				done();
+			});
+		});
 	});
 
 });
