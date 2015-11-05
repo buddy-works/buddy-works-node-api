@@ -45,7 +45,7 @@ describe('buddyworksapi', function(){
 
 	});
 
-	describe('oauth.getAuthorizeUrl()', function(){
+	describe('.oauth.getAuthorizeUrl()', function(){
 		var clientId = utils.createRandomText();
 		var clientSecret = utils.createRandomText();
 		buddyworksapi.useOAuth(clientId, clientSecret);
@@ -64,7 +64,7 @@ describe('buddyworksapi', function(){
 
 	});
 
-	describe('oauth.getAccessToken()', function(){
+	describe('.oauth.getAccessToken()', function(){
 		var clientId = utils.createRandomText();
 		var clientSecret = utils.createRandomText();
 		buddyworksapi.useOAuth(clientId, clientSecret);
@@ -88,6 +88,24 @@ describe('buddyworksapi', function(){
 				expect(err).to.be.instanceOf(Error);
 				done();
 			});
+		});
+	});
+
+	describe('apis', function(){
+		it('should have all the apis', function(){
+			expect(buddyworksapi.branches).instanceOf(require('../lib/apis/branches'));
+			expect(buddyworksapi.commits).instanceOf(require('../lib/apis/commits'));
+			expect(buddyworksapi.groups).instanceOf(require('../lib/apis/groups'));
+			expect(buddyworksapi.members).instanceOf(require('../lib/apis/members'));
+			expect(buddyworksapi.permissions).instanceOf(require('../lib/apis/permissions'));
+			expect(buddyworksapi.projects).instanceOf(require('../lib/apis/projects'));
+			expect(buddyworksapi.releases).instanceOf(require('../lib/apis/releases'));
+			expect(buddyworksapi.scenarios).instanceOf(require('../lib/apis/scenarios'));
+			expect(buddyworksapi.source).instanceOf(require('../lib/apis/source'));
+			expect(buddyworksapi.tags).instanceOf(require('../lib/apis/tags'));
+			expect(buddyworksapi.webhooks).instanceOf(require('../lib/apis/webhooks'));
+			expect(buddyworksapi.workspaces).instanceOf(require('../lib/apis/workspaces'));
+			expect(buddyworksapi.you).instanceOf(require('../lib/apis/you'));
 		});
 	});
 
