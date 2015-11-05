@@ -180,7 +180,7 @@ buddyworksapi.projects.deleteProjectMember(accessToken, domain, projectName, mem
 
 Get workspace members
 ```javascript
-buddyworksapi.members.getList(accessToken, domain, function(err, json){});
+buddyworksapi.members.getList(accessToken, domain, filters, function(err, json){});
 ```
 
 Add workspace member
@@ -205,7 +205,7 @@ buddyworksapi.members.deleteMember(accessToken, domain, memberId, function(err, 
 
 Get member projects
 ```javascript
-buddyworksapi.members.getMemberProjects(accessToken, domain, memberId, function(err, json){});
+buddyworksapi.members.getMemberProjects(accessToken, domain, memberId, filters, function(err, json){});
 ```
 
 ### Groups
