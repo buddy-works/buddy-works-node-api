@@ -1,6 +1,8 @@
 # Buddy Works APIs Node.js Client
 Buddy's officially supported node.js client library.
 
+[![Build](https://api.travis-ci.org/buddy-works/buddy-works-node-api.svg?branch=master)](https://api.travis-ci.org/buddy-works/buddy-works-node-api)
+
 ## Installation
 
 This library is distributed on `npm`. In order to add it as a dependency,

@@ -9,8 +9,8 @@
       "email": "mikeh@buddy.works"
     },
     {
-      "name": "Pavel Kapala",
-      "email": "pavelk@buddy.works"
+      "name": "Paul Kapala",
+      "email": "paulk@buddy.works"
     }
   ],
   "engines": {
@@ -19,7 +19,7 @@
   "main": "./lib/buddyworksapi",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mical/buddy-works-node-api.git"
+    "url": "https://github.com/buddy-works/buddy-works-node-api.git"
   },
   "keywords": [
     "buddy",
