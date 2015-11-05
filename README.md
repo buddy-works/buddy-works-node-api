@@ -58,8 +58,7 @@ If you need more instances of client api you can create new with provided code:
 
 ```javascript
 var buddyworksapi = require('buddyworksapi');
-var client = buddyworksapi.create();
-client.useToken(token2);
+var buddyworksapi2 = buddyworksapi.create();
 ```
 
 ## Apis
