@@ -5,8 +5,7 @@ Buddy's officially supported node.js client library.
 
 ## Installation
 
-This library is distributed on `npm`. In order to add it as a dependency,
-run the following command:
+This library is distributed on `npm`. In order to add it as a dependency, run the following command:
 
 ``` sh
 $ npm install buddyworksapi --save
@@ -15,6 +14,7 @@ $ npm install buddyworksapi --save
 ## Usage of OAUTH
 
 First you need to add application in your [Buddy ID](https://app.buddy.works/my-apps).
+
 You will then obtain clientId & clientSecret to execute this code:
 
 ```javascript
@@ -28,20 +28,25 @@ Next you can get authorize url:
 buddyworksapi.oauth.getAuthorizeUrl(scopes, state, redirectUrl);
 ```
 scopes is array of strings - [help](https://buddy.works/api/reference/getting-started/oauth#supported-scopes)
+
 state should be an unguessable random string. It is used to protect against cross-site request forgery attacks.
+
 redirectUrl is optional [more](https://buddy.works/api/reference/getting-started/oauth#web-application-flow)
 
-You should redirect your user to this url, after that user should landed on your page (configured in application or passed to the method)
-In query you will get code & state. 
-state should be the same as you passed before.
-code is used in next step to exchange for access token:
+You should redirect your user to created url, after authorization he should get back to your page (configured in application or passed to the method)
+
+In query params you will get code & state. 
+
+State should be the same as you passed before.
+
+Code is used in next step to exchange for access token:
 
 ```javascript
 buddyworksapi.oauth.getAccessToken(code, redirectUrl, function(err, json){
 	if (err) console.error(err);
 	else{
 		console.log(json.access_token);//token used to authenticate requests in API.
-		console.log(json.expires_in);//Time in seconds how long the token will be valid.
+		console.log(json.expires_in);//time in seconds how long the token will be valid.
 	}
 });
 ```
@@ -49,7 +54,9 @@ buddyworksapi.oauth.getAccessToken(code, redirectUrl, function(err, json){
 ## Usage of direct tokens
 
 You can also use [api tokens](https://app.buddy.works/api-tokens).
+
 That functionality is provided for testing purpose and will only work for individual tokens generated per user.
+
 All requests will be called in behalf of the user whom provided token 
  
 ## Many api client instances
@@ -63,7 +70,7 @@ var buddyworksapi2 = buddyworksapi.create();
 
 ## Apis
 
-For detailed info what send for which method, error codes, rates & limits check [our documentation](https://buddy.works/api/reference/getting-started/overview)
+For detailed info what send for which method, error codes, rates & limits - check [our documentation](https://buddy.works/api/reference/getting-started/overview)
  
 ### Profile
 
@@ -423,6 +430,8 @@ Reorder scenario actions
 ```javascript
 buddyworksapi.scenarios.reorderScenarioActions(accessToken, domain, projectName, scenarioId, order, function(err, json){});
 ```
+order is an array of actions ids ie: [1, 100, 200, 50]
+
 
 Get scenario action
 ```javascript
