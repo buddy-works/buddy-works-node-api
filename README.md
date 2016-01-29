@@ -1,5 +1,5 @@
 # Buddy Works APIs Node.js Client
-Buddy's officially supported node.js client library.
+Official Node.js client library for Buddy [Continuous Deployment](https://buddy.works)
 
 [![Build](https://api.travis-ci.org/buddy-works/buddy-works-node-api.svg?branch=master)](https://api.travis-ci.org/buddy-works/buddy-works-node-api)
 
@@ -11,9 +11,9 @@ This library is distributed on `npm`. In order to add it as a dependency, run th
 $ npm install buddyworksapi --save
 ```
  
-## Usage of OAUTH
+## Usage of OAauth
 
-First you need to add application in your [Buddy ID](https://app.buddy.works/my-apps).
+First, you need to add the application in your [Buddy ID](https://app.buddy.works/my-apps).
 
 You will then obtain clientId & clientSecret to execute this code:
 
@@ -22,24 +22,20 @@ var buddyworksapi = require('buddyworksapi');
 buddyworksapi.useOAuth(clientId, clientSecret);
 ```
 
-Next you can get authorize url:
+Next you can get AuthorizeUrl:
 
 ```javascript
 buddyworksapi.oauth.getAuthorizeUrl(scopes, state, redirectUrl);
 ```
-scopes is array of strings - [help](https://buddy.works/api/reference/getting-started/oauth#supported-scopes)
+`scopes` are arrays of strings - [help](https://buddy.works/api/reference/getting-started/oauth#supported-scopes)
 
-state should be an unguessable random string. It is used to protect against cross-site request forgery attacks.
+`state` should be an unguessable random string. It is used to protect against cross-site request forgery attacks.
 
-redirectUrl is optional [more](https://buddy.works/api/reference/getting-started/oauth#web-application-flow)
+`redirectUrl` is optional [more](https://buddy.works/api/reference/getting-started/oauth#web-application-flow)
 
-You should redirect your user to created url, after authorization he should get back to your page (configured in application or passed to the method)
+You should redirect the user to the created URL. Upon authorization, the user should get back to your page (configured in application or passed to the method)
 
-In query params you will get code & state. 
-
-State should be the same as you passed before.
-
-Code is used in next step to exchange for access token:
+`query params` will get you the code & state. State should be the same as you passed before. Code is used in next step to exchange for access token:
 
 ```javascript
 buddyworksapi.oauth.getAccessToken(code, redirectUrl, function(err, json){
@@ -53,24 +49,24 @@ buddyworksapi.oauth.getAccessToken(code, redirectUrl, function(err, json){
 
 ## Usage of direct tokens
 
-You can also use [api tokens](https://app.buddy.works/api-tokens).
+You can also use [API Tokens](https://app.buddy.works/api-tokens).
 
-That functionality is provided for testing purpose and will only work for individual tokens generated per user.
+That functionality is provided for testing purposes and will only work for individual tokens generated per user.
 
-All requests will be called in behalf of the user whom provided token 
+All requests will be called on behalf of the user who provided token.
  
-## Many api client instances
+## Numerous API client instances
 
-If you need more instances of client api you can create new with provided code:
+If you need more instances of the client API you can create them with the following code:
 
 ```javascript
 var buddyworksapi = require('buddyworksapi');
 var buddyworksapi2 = buddyworksapi.create();
 ```
 
-## Apis
+## API's
 
-For detailed info what send for which method, error codes, rates & limits - check [our documentation](https://buddy.works/api/reference/getting-started/overview)
+For detailed info what send for which method, error codes, rates & limits - check [Buddy documentation](https://buddy.works/api/reference/getting-started/overview)
  
 ### Profile
 
