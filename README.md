@@ -1,5 +1,5 @@
 # Buddy Works APIs Node.js Client
-Official Node.js client library for Buddy [Continuous Deployment](https://buddy.works)
+Official Node.js client library for Buddy [Continuous Integration](https://buddy.works) tool.
 
 [![Build](https://api.travis-ci.org/buddy-works/buddy-works-node-api.svg?branch=master)](https://api.travis-ci.org/buddy-works/buddy-works-node-api)
 
