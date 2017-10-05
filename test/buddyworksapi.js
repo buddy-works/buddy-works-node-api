@@ -99,8 +99,8 @@ describe('buddyworksapi', function(){
 			expect(buddyworksapi.members).instanceOf(require('../lib/apis/members'));
 			expect(buddyworksapi.permissions).instanceOf(require('../lib/apis/permissions'));
 			expect(buddyworksapi.projects).instanceOf(require('../lib/apis/projects'));
-			expect(buddyworksapi.releases).instanceOf(require('../lib/apis/releases'));
-			expect(buddyworksapi.scenarios).instanceOf(require('../lib/apis/scenarios'));
+			expect(buddyworksapi.executions).instanceOf(require('../lib/apis/executions'));
+			expect(buddyworksapi.pipelines).instanceOf(require('../lib/apis/pipelines'));
 			expect(buddyworksapi.source).instanceOf(require('../lib/apis/source'));
 			expect(buddyworksapi.tags).instanceOf(require('../lib/apis/tags'));
 			expect(buddyworksapi.webhooks).instanceOf(require('../lib/apis/webhooks'));

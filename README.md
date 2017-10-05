@@ -115,6 +115,16 @@ Get ssh key
 buddyworksapi.profile.getSshKey(accessToken, keyId, function(err, json){});
 ```
 
+Get integrations
+```javascript
+buddyworksapi.profile.getIntegrations(accessToken, function(err, json){});
+```
+
+Get integration
+```javascript
+buddyworksapi.profile.getIntegration(accessToken, integrationId, function(err, json){});
+```
+
 ### Workspaces
 
 Workspaces list
@@ -385,88 +395,81 @@ Delete branch
 buddyworksapi.branches.deleteBranch(accessToken, domain, projectName, name, force, function(err, json){});
 ```
 
-### Scenarios
+### Pipelines
 
-Get scenarios
+Get pipelines
 ```javascript
-buddyworksapi.scenarios.getList(accessToken, domain, projectName, filters, function(err, json){});
+buddyworksapi.pipelines.getList(accessToken, domain, projectName, filters, function(err, json){});
 ```
 
-Add scenario
+Add pipeline
 ```javascript
-buddyworksapi.scenarios.addScenario(accessToken, domain, projectName, data, function(err, json){});
+buddyworksapi.pipelines.addPipeline(accessToken, domain, projectName, data, function(err, json){});
 ```
 
-Get scenario
+Get pipeline
 ```javascript
-buddyworksapi.scenarios.getScenario(accessToken, domain, projectName, scenarioId, function(err, json){});
+buddyworksapi.pipelines.getPipeline(accessToken, domain, projectName, pipelineId, function(err, json){});
 ```
 
-Edit scenario
+Edit pipeline
 ```javascript
-buddyworksapi.scenarios.editScenario(accessToken, domain, projectName, scenarioId, data, function(err, json){});
+buddyworksapi.pipelines.editPipeline(accessToken, domain, projectName, pipelineId, data, function(err, json){});
 ```
 
-Delete scenario
+Delete pipeline
 ```javascript
-buddyworksapi.scenarios.deleteScenario(accessToken, domain, projectName, scenarioId, function(err, json){});
+buddyworksapi.pipelines.deletePipeline(accessToken, domain, projectName, pipelineId, function(err, json){});
 ```
 
-Get scenario actions
+Get pipeline actions
 ```javascript
-buddyworksapi.scenarios.getScenarioActions(accessToken, domain, projectName, scenarioId, function(err, json){});
+buddyworksapi.pipelines.getPipelineActions(accessToken, domain, projectName, pipelineId, filters, function(err, json){});
 ```
 
-Add scenario action
+Add pipeline action
 ```javascript
-buddyworksapi.scenarios.addScenarioAction(accessToken, domain, projectName, scenarioId, data, function(err, json){});
+buddyworksapi.pipelines.addPipelineAction(accessToken, domain, projectName, pipelineId, data, function(err, json){});
 ```
 
-Reorder scenario actions
+Get pipeline action
 ```javascript
-buddyworksapi.scenarios.reorderScenarioActions(accessToken, domain, projectName, scenarioId, order, function(err, json){});
-```
-order is an array of actions ids ie: [1, 100, 200, 50]
-
-
-Get scenario action
-```javascript
-buddyworksapi.scenarios.getScenarioAction(accessToken, domain, projectName, scenarioId, actionId, function(err, json){});
+buddyworksapi.pipelines.getPipelineAction(accessToken, domain, projectName, pipelineId, actionId, function(err, json){});
 ```
 
-Edit scenario action
+Edit pipeline action
 ```javascript
-buddyworksapi.scenarios.editScenarioAction(accessToken, domain, projectName, scenarioId, actionId, data, function(err, json){});
+buddyworksapi.pipelines.editPipelineAction(accessToken, domain, projectName, pipelineId, actionId, data, function(err, json){});
 ```
 
-Delete scenario action
+Delete pipeline action
 ```javascript
-buddyworksapi.scenarios.deleteScenarioAction(accessToken, domain, projectName, scenarioId, actionId, function(err, json){});
+buddyworksapi.pipelines.deletePipelineAction(accessToken, domain, projectName, pipelineId, actionId, function(err, json){});
 ```
 
-### Releases
+### Executions
 
-Get releases
+Get executions
 ```javascript
-buddyworksapi.releases.getList(accessToken, domain, projectName, scenarioId, filters, function(err, json){});
+buddyworksapi.executions.getList(accessToken, domain, projectName, pipelineId, filters, function(err, json){});
 ```
 
-Run release
+Run execution
 ```javascript
-buddyworksapi.releases.runRelease(accessToken, domain, projectName, scenarioId, data, function(err, json){});
+buddyworksapi.executions.runExecution(accessToken, domain, projectName, pipelineId, data, function(err, json){});
 ```
 
-Get release
+Get execution
 ```javascript
-buddyworksapi.releases.getRelease(accessToken, domain, projectName, scenarioId, releaseId, function(err, json){});
+buddyworksapi.executions.getExecution(accessToken, domain, projectName, pipelineId, executionId, function(err, json){});
 ```
 
-Cancel release
+Cancel execution
 ```javascript
-buddyworksapi.releases.cancelRelease(accessToken, domain, projectName, scenarioId, releaseId, function(err, json){});
+buddyworksapi.executions.cancelExecution(accessToken, domain, projectName, pipelineId, executionId, function(err, json){});
 ```
 
-Retry release
+Retry execution
 ```javascript
-buddyworksapi.releases.retryRelease(accessToken, domain, projectName, scenarioId, releaseId, function(err, json){});
+buddyworksapi.executions.retryExecution(accessToken, domain, projectName, pipelineId, executionId, function(err, json){});
 ```

@@ -39,8 +39,7 @@
   },
   "scripts": {
     "lint": "jshint lib test",
-    "test": "mocha --reporter spec --timeout 4000",
-    "prepare": "npm test && npm run lint && npm version patch"
+    "test": "mocha --reporter spec --timeout 4000"
   },
   "license": "Apache-2.0"
 }
