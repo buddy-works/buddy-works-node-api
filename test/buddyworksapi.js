@@ -105,7 +105,7 @@ describe('buddyworksapi', function(){
 			expect(buddyworksapi.tags).instanceOf(require('../lib/apis/tags'));
 			expect(buddyworksapi.webhooks).instanceOf(require('../lib/apis/webhooks'));
 			expect(buddyworksapi.workspaces).instanceOf(require('../lib/apis/workspaces'));
-			expect(buddyworksapi.profile).instanceOf(require('../lib/apis/profile'));
+			expect(buddyworksapi.integrations).instanceOf(require('../lib/apis/integrations'));
 		});
 	});
 
