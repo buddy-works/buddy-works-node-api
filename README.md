@@ -1,7 +1,7 @@
 # Buddy Works APIs Node.js Client
 Official Node.js client library for [Buddy Continuous Integration](https://buddy.works) tool.
 
-[![buddy pipeline](https://app.buddy.works/monitor/buddy-works-node-api/pipelines/pipeline/61880/badge.svg?token=7de97367c9cdc3c6db31aa114057b65cea1a7bafc71cf0595a2931011526a0a3 "buddy pipeline")](https://app.buddy.works/monitor/buddy-works-node-api/pipelines/pipeline/61880)
+[![buddy pipeline](https://app.buddy.works/buddy-works/buddy-works-node-api/pipelines/pipeline/302002/badge.svg?token=be04e77cb21d0e7e611853e903e521ba233e01d46699a1e6dc00f85a853cbdd6 "buddy pipeline")](https://app.buddy.works/buddy-works/buddy-works-node-api/pipelines/pipeline/302002)
 
 ## Installation
 
@@ -67,17 +67,12 @@ var buddyworksapi2 = buddyworksapi.create();
 ## API's
 
 For detailed info what send for which method, error codes, rates & limits - check [Buddy documentation](https://buddy.works/api/reference/getting-started/overview)
- 
+
 ### Profile
 
-Get user
+Add email
 ```javascript
-buddyworksapi.profile.getUser(accessToken, function(err, json){});
-```
-
-Edit user
-```javascript
-buddyworksapi.profile.editUser(accessToken, data, function(err, json){});
+buddyworksapi.profile.addEmail(accessToken, email, function(err, json){});
 ```
 
 Get emails
@@ -85,19 +80,14 @@ Get emails
 buddyworksapi.profile.getEmails(accessToken, function(err, json){});
 ```
 
-Add email
-```javascript
-buddyworksapi.profile.addEmail(accessToken, email, function(err, json){});
-```
-
 Delete email
 ```javascript
 buddyworksapi.profile.deleteEmail(accessToken, email, function(err, json){});
 ```
 
-Get ssh keys
+Get profile
 ```javascript
-buddyworksapi.profile.getSshKeys(accessToken, function(err, json){});
+buddyworksapi.profile.getProfile(accessToken, function(err, json){});
 ```
 
 Add ssh key
@@ -115,14 +105,36 @@ Get ssh key
 buddyworksapi.profile.getSshKey(accessToken, keyId, function(err, json){});
 ```
 
-Get integrations
+Get ssh keys
 ```javascript
-buddyworksapi.profile.getIntegrations(accessToken, function(err, json){});
+buddyworksapi.profile.getSshKeys(accessToken, function(err, json){});
+```
+
+### Integrations
+
+Get integrations list
+```javascript
+buddyworksapi.integrations.getList(accessToken, domain, filters, function(err, json){});
 ```
 
 Get integration
 ```javascript
-buddyworksapi.profile.getIntegration(accessToken, integrationId, function(err, json){});
+buddyworksapi.integrations.getIntegration(accessToken, domain, integrationHash, function(err, json){});
+```
+
+Add integration
+```javascript
+buddyworksapi.integrations.addIntegration(accessToken, domain, data, function(err, json){});
+```
+
+Edit integration
+```javascript
+buddyworksapi.integrations.editIntegration(accessToken, domain, integrationHash, data, function(err, json){});
+```
+
+Delete integration
+```javascript
+buddyworksapi.integrations.deleteIntegration(accessToken, domain, integrationHash, function(err, json){});
 ```
 
 ### Workspaces
